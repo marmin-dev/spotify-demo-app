@@ -28,7 +28,6 @@ function App() {
       if (spotifyToken) {
         setSpotifyToken(spotifyToken);
         spotifyApi.setAccessToken(spotifyToken);
-
         spotifyApi.getMe().then((user) => {
           console.log(user);
         });
@@ -41,6 +40,11 @@ function App() {
   const getNowPlaying = () => {
     spotifyApi.getMyCurrentPlaybackState().then((response) => {
       console.log(response);
+      spotifyApi
+        .getCategories("spotify:track:4lKWSv9JLE8B1YINRFv42O")
+        .then((response) => {
+          console.log(response);
+        });
       setNewPlaying({
         name: response.item.name,
         albumArt: response.item.album.images[0].url,
