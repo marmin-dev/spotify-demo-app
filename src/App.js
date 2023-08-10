@@ -29,7 +29,7 @@ function App() {
         setSpotifyToken(spotifyToken);
         spotifyApi.setAccessToken(spotifyToken);
         spotifyApi.getMe().then((user) => {
-          console.log(user);
+          // console.log(user);
         });
         // use spotify api
         setLoggedIn(true);
